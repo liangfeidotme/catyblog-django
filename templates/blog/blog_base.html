@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{% block base-container %}
+<div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+        <div class="row">
+            {% block main-content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="input-group panel panel-primary">
+                <input id="keyword" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button id="search" class="btn btn-default" type="button" value="{% url 'search' 'keyword'%}">搜索</button>
+                </span>
+        </div><!-- /input-group -->
+        <div class="panel panel-primary" hidden>
+            <div class="panel-heading">所有标签</div>
+            <div class="panel-body">
+                <span class="label"><a href="#">python</a></span>
+                <span class="label"><a href="#">django</a></span>
+                <span class="label"><a href="#">mongodb</a></span>
+                <span class="label"><a href="#">nginx</a></span>
+                <span class="label"><a href="#">android</a></span>
+                <span class="label"><a href="#">html5</a></span>
+                <span class="label"><a href="#">css3</a></span>
+                <span class="label"><a href="#">javascript</a></span>
+            </div>
+        </div>
+        <div class="panel panel-info" hidden>
+            <div class="panel-heading">新鲜出炉</div>
+                <ul id="recent-list" class="nav nav-pills nav-stacked" value="{% url 'article' 0 %}">
+
+                </ul>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">文章存档</div>
+            <ul class="nav nav-pills nav-stacked">
+                {% for date, count in archive %}
+                    <li><a href="{% url 'archive' date %}">{{ date }}<span class="badge pull-right">{{ count }}</span></a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">友情链接</div>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="http://blog.csdn.net/feelang">我的csdn博客</a></li>
+                <li><a href="#">中国端粒研究</a></li>
+            </ul>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">技术支持</div>
+            <ul class="nav nav-pills nav-stacked">
+                <li>
+                    <a href="https://www.djangoproject.com/" target="_blank">django</a>
+                    <a href="http://getbootstrap.com/">Bootstrap</a>
+                    <a href="http://www.aliyun.com">阿里云</a>
+                </li>
+            </ul>
+        </div>
+    </div><!--/span-->
+</div><!--/row-->
+{% endblock %}
+{% block js-content %}
+
+{% endblock %}

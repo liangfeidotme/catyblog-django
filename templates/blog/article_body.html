@@ -1,0 +1,22 @@
+<article class="post-body">
+    <div class="row">
+        <div class="col-sm-2">
+            <section class="post-date">
+                <span id="day" class="label label-primary">{{ post.date | date:"d日"}}</span>
+                <span id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</span>
+            </section>
+            <section class="comment-count"><a href="{% url 'article' post.id %}#disqus_thread"></a></section>
+        </div>
+        <div class="col-sm-10">
+            <header><h2><a href="{% url 'article' post.id %}">{{ post.title }}</a></h2></header>
+            <br>
+            <section class="well well-lg">
+                {% autoescape off %}
+                {{ post.body }}
+                {% endautoescape %}
+            </section>
+
+        </div>
+    </div>
+</article>
+<hr>

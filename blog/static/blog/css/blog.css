@@ -1,0 +1,134 @@
+header,
+article,
+aside,
+nav {
+    display: block;
+}
+
+body {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding: 0;
+    font: 'Microsoft Yahei';
+    background-image: url('/media/img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+#logo {
+/*    color: #ffffff; */
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: -40px;
+    text-align: center;
+}
+
+#logo #sub-title {
+    font-size: 0.5em;
+}
+
+#my_sns image {
+    width: 100px;
+    height: 100px;
+}
+nav#site-nav {
+    color: white;
+    text-align: center;
+}
+
+#site-nav > a {
+    color: white;
+    background-color: #d2322d;
+    padding: 5px 10px 5px 10px;
+    margin-right: 1px;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+#site-nav > a:hover {
+    background-color: #333;
+}
+
+
+#site-nav > a.active {
+    background-color: #993333;
+}
+
+.articles {
+    float: left;
+    width: 80%;
+    margin-top: 3em;
+}
+
+.articles > article {
+    min-height: 150px;
+    margin-left: 1em;
+    margin-right: 0.5em;
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.articles > article > header {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 2px 2px;
+}
+
+.articles > article > section {
+    padding-left: 5px;
+    margin-top: 10px;
+}
+
+.articles > article .post-date {
+    text-align: left;
+    color: gray;
+}
+
+.articles > footer {
+    text-align: center;
+}
+
+.articles > footer > a {
+    padding: 5px 10px 5px 10px;
+    background-color: #555555;
+    text-decoration: None;
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 1.3em;
+}
+
+.articles > footer > a:hover {
+    font-weight: bold;
+}
+.sidebar {
+    float: left;
+    width: 20%;
+    margin-top: 3em;
+}
+
+.sidebar header {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.sidebar section {
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 10px;
+    background-color: #d9534f;
+    margin-right: 0.5em;
+}
+
+#about-me {
+    background-color: #d58512;
+}
+
+.sns_icon {
+    width: 50px;
+    height: 50px;
+}

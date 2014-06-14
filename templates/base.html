@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <title>Zero Channel</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="lyndon's blog based on Django">
+    <meta name="author" content="lyndon">
+    <script src="{% static 'js/modernizr-latest.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Zero Channel</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {% for category in categories %}
+                        <li {% if category.name == active_category %} class="active" {% endif %} value={{ active_category }}>
+                            <a href="{% url 'list_category' category.name %}">{{ category.description }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li {% if active_category == 'about' %} class="active" {% endif %}>
+                        <a href="{% url 'about_me' %}">关于我</a>
+                    </li>
+                    <li><a href="http://weibo.com/u/1670598115" target="_blank"><i>微博</i></a></li>
+                    <li><a href="http://www.douban.com/people/horikitamaki/" target="_blank"><i>豆瓣</i></a></li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div>
+    </div><!-- /.navbar -->
+    <div class="jumbotron text-center">
+        <h1><ruby>為<rp>(</rp><rt>な</rt><rp>)</rp></ruby>せばなる</h1>
+    </div>
+    <div class="container">
+
+        <!-- application container -->
+        {% block base-container %}
+        {% endblock %}
+        <!-- application container -->
+        <hr>
+        <footer>
+            <p>&copy; 2014 梁飞
+                Supported by <a href="http://www.bootcss.com/">Bootstrap</a> +
+                <a href="https://www.djangoproject.com/">Django</a> +
+                <a href="http://www.mongodb.org/">MongoDB</a> +
+                <a href="http://www.mysql.com/">MySql</a></p>
+        </footer>
+    </div>
+
+    <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+
+    <!-- javascript container -->
+    {% block js-content %}
+    {% endblock %}
+</body>
+</html>
