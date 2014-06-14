@@ -1,6 +1,22 @@
 {% extends 'blog/blog_base.html' %}
+{% block head %}
+    <meta name="description" content="{{ post.title }}">
+{% endblock %}
 {% block main-content %}
     {% include 'blog/article_body.html' %}
+    <section>
+        <!-- JiaThis Button BEGIN -->
+        <div class="jiathis_style">
+            <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_tsina"></a>
+            <a class="jiathis_button_tqq"></a>
+            <a class="jiathis_button_weixin"></a>
+            <a class="jiathis_button_renren"></a>
+            <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+            <a class="jiathis_counter_style"></a>
+        </div>
+        <!-- JiaThis Button END -->
+    </section>
     <section>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -18,4 +34,9 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </section>
 
+{% endblock %}
+{% block js-content %}
+    <script>
+        // todo delte link of title.
+    </script>
 {% endblock %}
