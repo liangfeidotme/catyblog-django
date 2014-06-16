@@ -37,6 +37,6 @@
 {% endblock %}
 {% block js-content %}
     <script>
-        // todo delte link of title.
+        $('header > h2')[0].innerText = $('header > h2 > a')[0].innerText;
     </script>
 {% endblock %}

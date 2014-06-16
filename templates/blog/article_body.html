@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-sm-2">
             <section class="post-date">
-                <span id="day" class="label label-primary">{{ post.date | date:"d日"}}</span>
-                <span id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</span>
+                <div id="day" class="label label-primary">{{ post.date | date:"d日"}}</div>
+                <div id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</div>
             </section>
             <section class="comment-count"><a href="{% url 'article' post.id %}#disqus_thread"></a></section>
         </div>

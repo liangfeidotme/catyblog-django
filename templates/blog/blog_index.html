@@ -8,13 +8,13 @@
             <footer>
                 <ul class="pager">
                     {% if posts.has_previous %}
-                        <li><a class="previous" href="{% url 'page' active_category posts.previous_page_number %}">前一篇</a></li>
+                        <li><a class="previous" href="{% url 'page' active_category posts.previous_page_number %}">上一页</a></li>
                     {% endif %}
                     <span>
                         <li>　{{ posts.number }} ／ {{ posts.paginator.num_pages }}　</li>
                     </span>
                     {% if posts.has_next %}
-                        <li><a class="next" href="{% url 'page' active_category posts.next_page_number %}">下一篇</a></li>
+                        <li><a class="next" href="{% url 'page' active_category posts.next_page_number %}">下一页</a></li>
                     {% endif %}
                 </ul>
             </footer>
