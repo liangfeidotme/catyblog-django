@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.html import format_html
 # Create your models here.
 
 
@@ -19,3 +19,15 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def created_on(self):
+        return self.date.strftime('%Y-%m-%d')
+    created_on.short_description = 'Created on'
+
+    def article_category(self):
+        return format_html('<span style="color: red;">{0}</span>', self.category)
+    article_category.short_description = 'Category'
+    article_category.allow_tags = True
+    article_category.admin_order_field = 'category'
+
+    type = property(article_category)

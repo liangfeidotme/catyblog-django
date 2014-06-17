@@ -4,14 +4,25 @@ from blog.models import Post, Category
 
 
 class PostAdmin(admin.ModelAdmin):
+
+    # def upper_case_name(self, obj):
+    #     return ("%s %s" % (obj.title, obj.category)).upper()
+    # upper_case_name.short_description = 'Name'
+
     search_fields = ['title']
-    list_display = ['title', 'category', 'date']
+    list_display = ['title', 'type', 'created_on']
+    list_display_links = ['title', 'type', 'created_on']
+    # list_editable = ['title']
+    list_filter = ('category__description', 'date')
+    # list_display = ('upper_case_name',)
     date_hierarchy = 'date'
 
+    radio_fields = {'category': admin.HORIZONTAL}
+    # raw_id_fields = ('category',)
     # change page
     fieldsets = (
         ('Article', {
-            'description': 'Write your article here!',
+            'description': '<em style="color:red;">Write your article here!</em>',
             'fields': ('category', 'title', 'body'),
             'classes': ('wide', )
         }),
@@ -21,7 +32,8 @@ class PostAdmin(admin.ModelAdmin):
         })
     )
 
-    #fields = ('title', 'category', 'body')
+    # readonly_fields = ('title',)
+    # fields = ('title', 'category', 'body')
 
 admin.site.register(Post, PostAdmin)
 
