@@ -59,11 +59,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post-date #day {
-    display: inline-block;
     font-size: 1.5em !important;
-}
-
-.comment-count {
-    margin-top: 10px;
-    padding-top: 10px;
+    -moz-border-radius: 200px 200px;
+    -webkit-border-radius: 200px 200px;
+    border-radius: 200px 200px;
 }

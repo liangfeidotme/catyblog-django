@@ -1,11 +1,8 @@
 <article class="post-body">
     <div class="row">
-        <div class="col-sm-2">
-            <section class="post-date">
-                <div id="day" class="label label-primary">{{ post.date | date:"d日"}}</div>
-                <div id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</div>
-            </section>
-            <section class="comment-count"><a href="{% url 'article' post.id %}#disqus_thread"></a></section>
+        <div class="col-sm-2 post-date">
+            <div id="day" class="label label-primary">{{ post.date | date:"d日"}}</div>
+            <div id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</div>
         </div>
         <div class="col-sm-10">
             <header><h2 id="post-title"><a href="{% url 'article' post.id %}">{{ post.title }}</a></h2></header>
