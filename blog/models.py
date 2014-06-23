@@ -11,8 +11,16 @@ class Category(models.Model):
         return self.name
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Post(models.Model):
     category = models.ForeignKey(Category)
+    tags = models.ManyToManyField(Tag)
     title = models.CharField(max_length=60)
     body = models.TextField()
     date = models.DateField(auto_now_add=True)

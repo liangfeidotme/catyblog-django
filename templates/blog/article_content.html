@@ -1,10 +1,19 @@
 <article class="post-body">
     <div class="row">
-        <div class="col-sm-2 post-date">
+        <aside class="col-sm-2 post-date">
             <div id="day" class="label label-primary">{{ post.date | date:"d日"}}</div>
             <div id="year-month" class="label label-default">{{ post.date | date:"Y年m月"}}</div>
-        </div>
-        <div class="col-sm-10">
+            <hr>
+            <div class="label label-default">文章标签</div>
+            <div class="text-center">
+                <ul class="article-tags">
+                    {% for tag in post.tags.all %}
+                        <li><span class="label label-success">{{ tag }}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </aside>
+        <article class="col-sm-10">
             <header><h2 id="post-title"><a href="{% url 'article' post.id %}">{{ post.title }}</a></h2></header>
             <br>
             <section class="well well-lg">
@@ -13,7 +22,7 @@
                 {% endautoescape %}
             </section>
 
-        </div>
+        </article>
     </div>
 
 </article>

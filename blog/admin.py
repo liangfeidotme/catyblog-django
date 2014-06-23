@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post, Category
+from blog.models import Post, Category, Tag
 # Register your models here.
 
 
@@ -9,9 +9,9 @@ class PostAdmin(admin.ModelAdmin):
     #     return ("%s %s" % (obj.title, obj.category)).upper()
     # upper_case_name.short_description = 'Name'
 
-    search_fields = ['title']
-    list_display = ['title', 'type', 'created_on']
-    list_display_links = ['title', 'type', 'created_on']
+    search_fields = ['title', 'tags']
+    # list_display = ['title', 'type', 'created_on', 'tags']
+    # list_display_links = ['title', 'type', 'created_on']
     # list_editable = ['title']
     list_filter = ('category__description', 'date')
     # list_display = ('upper_case_name',)
@@ -23,7 +23,7 @@ class PostAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Article', {
             'description': '<em style="color:red;">Write your article here!</em>',
-            'fields': ('category', 'title', 'body'),
+            'fields': ('category', 'title', 'body', 'tags'),
             'classes': ('wide', )
         }),
         ('Comments', {
@@ -35,11 +35,12 @@ class PostAdmin(admin.ModelAdmin):
     # readonly_fields = ('title',)
     # fields = ('title', 'category', 'body')
 
-admin.site.register(Post, PostAdmin)
+#admin.site.register(Post, PostAdmin)
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'description']
 
-
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Post)
+admin.site.register(Category)
+admin.site.register(Tag)

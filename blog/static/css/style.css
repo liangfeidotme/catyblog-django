@@ -60,7 +60,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-date #day {
     font-size: 1.5em !important;
+    padding-bottom: 20px;
+    padding-top: 20px;
     -moz-border-radius: 200px 200px;
     -webkit-border-radius: 200px 200px;
     border-radius: 200px 200px;
+}
+
+
+.article-tags {
+    list-style: none;
 }
