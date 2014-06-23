@@ -2,7 +2,11 @@
 {% block main-content %}
     {% include 'blog/article_body.html' %}
     <!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="{{ post.id }}" data-title="{{ post.title }}" data-url="{% url 'article' post.id %}"></div>
+	<div class="ds-thread"
+         data-thread-key="{% url 'article' post.id %}"
+         data-title="{{ post.title }}"
+         data-url="http://www.liangfeizc.com{% url 'article' post.id %}">
+    </div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
