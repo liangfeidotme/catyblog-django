@@ -25,7 +25,7 @@ def index(request, cat_name, page_num=1):
 
     posts = paginate(mark_down(posts), page_num)
 
-    return render(request, 'blog/blog_index.html',
+    return render(request, 'blog/article_list.html',
                   {
                       'posts': posts,
                       'active_category': cat_name,
@@ -51,12 +51,12 @@ def article(request, article_id):
     """
     posts = Post.objects.filter(id=int(article_id))
     if posts.count() == 0:
-        return render(request, 'blog/article.html')
+        return render(request, 'blog/article_detail.html')
 
     post = posts[0]
     post.body = markdown(post.body)
 
-    return render(request, 'blog/article.html',
+    return render(request, 'blog/article_detail.html',
                   {
                       'post': post,
                       'active_category': post.category.name,
@@ -70,7 +70,7 @@ def archive(request, published_on):
     posts = Post.objects.filter(
         date__year=published_on[:4],
         date__month=published_on[5:7]).values('id', 'title')
-    return render(request, 'blog/archive_list.html',
+    return render(request, 'blog/archive.html',
                   {
                       'date': published_on,
                       'archive': get_archive(),

@@ -1,6 +1,6 @@
-{% extends 'blog/blog_base.html' %}
+{% extends 'blog/base.html' %}
 {% block main-content %}
-    {% include 'blog/article_body.html' %}
+    {% include 'blog/article_content.html' %}
     <!-- 多说评论框 start -->
 	<div class="ds-thread"
          data-thread-key="{% url 'article' post.id %}"

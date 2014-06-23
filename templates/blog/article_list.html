@@ -1,8 +1,8 @@
-{% extends 'blog/blog_base.html' %}
+{% extends 'blog/base.html' %}
 {% block main-content %}
     <div>
         {% for post in posts.object_list %}
-            {% include 'blog/article_body.html' %}
+            {% include 'blog/article_content.html' %}
         {% endfor %}
         {% if posts.object_list and posts.paginator.num_pages > 1 %}
             <footer>
