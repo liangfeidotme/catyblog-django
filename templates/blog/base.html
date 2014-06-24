@@ -9,12 +9,10 @@
         </div>
     </div>
     <div class="col-sm-3" id="sidebar" role="navigation">
-        <div class="input-group panel panel-primary">
-                <input id="keyword" type="text" class="form-control">
-                <span class="input-group-btn">
-                    <button id="search" class="btn btn-default" type="button" value="{% url 'search' 'keyword'%}">搜索</button>
-                </span>
-        </div><!-- /input-group -->
+        <div class="input-group margin-bottom-sm panel">
+            <input class="form-control" type="text" placeholder="Key word">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+        </div>
         <div class="panel panel-primary" hidden>
             <div class="panel-heading">所有标签</div>
             <div class="panel-body">

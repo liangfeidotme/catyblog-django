@@ -9,7 +9,7 @@
             <header><h1><a href="{% url 'article' post.id %}">{{ post.title }}</a></h1></header>
             <section>
                 {% for tag in post.tags.all %}
-                    <span class="label label-success">{{ tag }}</span>
+                    <span class="label label-primary">{{ tag }}</span>
                 {% endfor %}
             </section>
             <hr>
