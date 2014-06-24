@@ -70,6 +70,11 @@ h1, h2, h3, h4, h5, h6 {
     -o-transform: rotate(90deg) ;
     transform: rotate(90deg) ;
 }
+
+.post-body {
+    font-size: 1.1em;
+}
+
 #site-logo {
     font-size: 2em;
     font-style: italic;
