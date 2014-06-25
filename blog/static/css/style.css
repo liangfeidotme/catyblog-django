@@ -7,7 +7,7 @@ body {
   overflow-x: hidden; /* Prevent scroll on narrow devices */
 }
 body {
-    padding-top: 50px;
+    padding-top: 20px;
     font-family: 'Microsoft Yahei';
 }
 footer {
@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .post-date {
+    padding-right: 10px;
     border-right: solid 1px #eeeeee;
 }
 
@@ -75,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.1em;
 }
 
+
 #site-logo {
     font-size: 2em;
     font-style: italic;
@@ -90,6 +92,6 @@ h1, h2, h3, h4, h5, h6 {
     background: -moz-linear-gradient(top, #317ab0, #ffffff);
 }
 
-#site-slogan > h1 {
+#site-slogan h1 {
     text-shadow: 0 10px 10px white;
 }

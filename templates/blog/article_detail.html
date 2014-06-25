@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-sm-offset-2 col-sm-10">
         <!-- 多说评论框 start -->
-        <div class="ds-thread"
+        <div class="ds-thread"  id="comments"
              data-thread-key="{% url 'article' post.id %}"
              data-title="{{ post.title }}"
              data-url="http://www.liangfeizc.com{% url 'article' post.id %}">
@@ -25,10 +25,4 @@
         <!-- 多说公共JS代码 end -->
         </div>
     </div>
-{% endblock %}
-
-{% block js-content %}
-    <script>
-        $('header > h1')[0].innerText = $('header > h1 > a')[0].innerText;
-    </script>
 {% endblock %}

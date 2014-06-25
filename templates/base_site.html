@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="lyndon">
     <script src="{% static 'js/modernizr-latest.js' %}"></script>
-{#    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">#}
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+{#    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">#}
+{#    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">#}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block head %}
     {% endblock %}
@@ -47,6 +48,7 @@
     </div><!-- /.navbar -->
     <div class="jumbotron text-center" id="site-slogan">
         <h1>www.<strong>liangfeizc</strong>.com</h1>
+        <p><small>梁飞的个人小站 - <i>Zealous Carrier</i></small></p>
     </div>
     <div class="container">
 
@@ -54,6 +56,7 @@
         {% block base-container %}
         {% endblock %}
         <!-- application container -->
+        <div class="text-right"><a href="">返回顶部</a></div>
         <hr>
         <footer>
             <p>&copy; 2014 梁飞
@@ -65,10 +68,11 @@
         </footer>
     </div>
 
-{#    <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>#}
-{#    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>#}
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+{#    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>#}
+{#    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>#}
+
     <!-- javascript container -->
     {% block js-content %}
     {% endblock %}

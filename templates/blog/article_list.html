@@ -2,7 +2,7 @@
 {% block main-content %}
     <div>
         {% for post in posts.object_list %}
-            {% include 'blog/article_content.html' %}
+            {% include 'blog/article_summary.html' %}
         {% endfor %}
         {% if posts.object_list and posts.paginator.num_pages > 1 %}
             <footer>

@@ -1,0 +1,7 @@
+{% extends 'blog/article_content.html' %}
+{% block title %}
+    <h1><a href="{% url 'article' post.id %}">{{ post.title }}</a></h1>
+{% endblock %}
+{% block footer %}
+    <div class="pull-right"><a href="{% url 'article' post.id %}#comments">评论</a></div>
+{% endblock %}
