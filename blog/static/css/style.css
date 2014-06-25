@@ -78,12 +78,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #site-logo {
-    font-size: 2em;
+    font-size: 2.1em;
     font-style: italic;
-    -webkit-text-stroke: 2px #FFF;
-    text-stroke: 2px #FFF;
-    -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
 }
 
 #site-slogan {
