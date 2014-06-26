@@ -7,10 +7,10 @@
     <!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
     <meta name="author" content="lyndon">
     <script src="{% static 'js/modernizr-latest.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
-{#    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">#}
-{#    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">#}
+{#    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">#}
+{#    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">#}
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block head %}
     {% endblock %}
@@ -41,8 +41,10 @@
                     <li {% if active_category == 'about' %} class="active" {% endif %}>
                         <a href="{% url 'about_me' %}">关于我</a>
                     </li>
-                    <li><a href="http://weibo.com/u/1670598115"><i class="fa fa-weibo fa-x"></i>微博</a></li>
-                    <li><a href="http://www.douban.com/people/horikitamaki/">豆瓣</a></li>
+                    <li><a href="http://weibo.com/u/1670598115"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href="http://www.douban.com/people/horikitamaki/">豆</a></li>
+                    <li><a href="http://www.facebook.com/fee.lang.zc" class="fa fa-facebook"></a></li>
+                    <li><a href="https://twitter.com/JpRyouhi" class="fa fa-twitter"></a></li>
                 </ul>
             </div><!-- /.nav-collapse -->
         </div>
@@ -69,10 +71,10 @@
         </footer>
     </div>
 
-    <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>
-    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
-{#    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>#}
-{#    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>#}
+{#    <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>#}
+{#    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>#}
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
     <!-- javascript container -->
     {% block js-content %}
