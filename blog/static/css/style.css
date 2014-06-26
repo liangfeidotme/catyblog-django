@@ -91,3 +91,31 @@ h1, h2, h3, h4, h5, h6 {
 #site-slogan h1 {
     text-shadow: 0 10px 10px white;
 }
+
+.job {
+    font-size: 1.5em;
+}
+
+
+.work-experience {
+
+}
+
+.work-time {
+    font-size: 1.5em;
+}
+
+.work-name {
+    font-size: 1.2em;
+    margin: 0 1em;
+    padding: 0 0.5em;
+    color: white;
+    background-color: #000000;
+    border-radius: 1em;
+    -webkit-border-radius: 100px;
+    border: 1px solid #000000;
+}
+
+.company-name {
+    font-style: italic;
+}
