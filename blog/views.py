@@ -31,18 +31,8 @@ def index(request, cat_name, page_num=1):
                       'active_category': cat_name,
                       'archive': get_archive(),
                       'categories': get_categories(),
+                      'nav_name': 'blog',
                   })
-
-
-def about(request):
-    """
-    about page
-    """
-    return render(request, 'blog/about_me.html',
-                 {
-                     'active_category': 'about',
-                     'categories': get_categories(),
-                 })
 
 
 def article(request, article_id):
@@ -62,6 +52,7 @@ def article(request, article_id):
                       'active_category': post.category.name,
                       'archive': get_archive(),
                       'categories': get_categories(),
+                      'nav_name': 'blog',
                   })
 
 
@@ -76,6 +67,7 @@ def archive(request, published_on):
                       'archive': get_archive(),
                       'posts': posts,
                       'categories': get_categories(),
+                      'nav_name': 'blog',
                   })
 
 
@@ -134,8 +126,6 @@ def insert_comment(mail, cmt):
 
     item = {'mail': mail, 'comment': cmt}
     MongoClient('localhost', 27017).catyblog.comments.insert(item)
-
-
 
 
 

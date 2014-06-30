@@ -10,6 +10,13 @@ body {
     padding-top: 20px;
     font-family: 'Microsoft Yahei';
 }
+
+@media screen and (max-width: 767px) {
+    body {
+        padding: 0px 10px;
+    }
+}
+
 footer {
   padding: 30px 0;
 }
@@ -54,23 +61,47 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.post-date {
-    padding-right: 10px;
-    border-right: solid 1px #eeeeee;
+@media screen and (max-width: 767px) {
+    .post-date {
+        padding-right: 10px;
+    }
+
+    .post-date:before {
+        content: 'Posted on: ';
+    }
+    .post-date > div {
+        display: inline-block;
+    }
+
+    .post-tags > div{
+        display: inline;
+    }
+
+    #article-left-side * {
+        text-align: left !important;
+    }
 }
 
-.post-date #day {
-    font-size: 2em !important;
+@media screen and (min-width: 768px) {
+    .post-date {
+        padding-right: 10px;
+        border-right: solid 1px #eeeeee;
+    }
+
+    .post-date #day {
+        font-size: 2em !important;
+    }
+
+    .post-date #year {
+        font-size: 1.2em;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg) ;
+        -ms-transform: rotate(90deg) ;
+        -o-transform: rotate(90deg) ;
+        transform: rotate(90deg) ;
+    }
 }
 
-.post-date #year {
-    font-size: 1.2em;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg) ;
-    -ms-transform: rotate(90deg) ;
-    -o-transform: rotate(90deg) ;
-    transform: rotate(90deg) ;
-}
 
 .post-body {
     font-size: 1.1em;
@@ -78,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 #site-logo {
-    font-size: 2.1em;
+    font-size: 1.5em;
     font-style: italic;
 }
 
@@ -92,39 +123,11 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 10px 10px white;
 }
 
-.job {
-    font-size: 1.5em;
-}
-
-
-.work-experience {
-
-}
-
-.work-time {
-    font-size: 1.5em;
-}
-
-.work-name {
-    font-size: 1.2em;
-    margin: 0 1em;
-    padding: 0 0.5em;
-    color: white;
-    background-color: #000000;
-    border-radius: 1em;
-    -webkit-border-radius: 100px;
-    border: 1px solid #000000;
-}
-
-.company-name {
-    font-style: italic;
-}
-
-article header a {
+article header > h1 > a {
     color: #418bca;
 }
 
-article header a:hover {
+article header > h1 > a:hover {
     text-decoration: none;
     opacity: 0.5;
     transition: 0.5s all;
@@ -132,4 +135,8 @@ article header a:hover {
     -moz-transition: 0.5s all;
     -ms-transition: 0.5s all;
     -o-transition: 0.5s all;
+}
+
+article header {
+    font-size: 1.2em;
 }
