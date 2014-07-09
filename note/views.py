@@ -1,6 +1,14 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponse
+from note.mongo import insert_issue, get_issue
 # Create your views here.
 
+
 def index(request):
-    return render(request, 'note/index.html', {'nav_name': 'note', })
+    data_dict = get_issue()
+    data_dict['nav_name'] = 'note'
+    return render(request, 'note/index.html',
+        {
+            'nav_name': 'note',
+            'one_note': data_dict
+        })
