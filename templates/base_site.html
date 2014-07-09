@@ -35,6 +35,7 @@
                     <li {% if nav_name == 'blog' %} class="active" {% endif %}><a href="/blog/">博客</a></li>
                     <li {% if nav_name == 'japanese' %} class="active" {% endif %}><a href="/#japanese/">日语</a></li>
                     <li {% if nav_name == 'photography' %} class="active" {% endif %}><a href="/#photography/">摄影</a></li>
+                    <li {% if nav_name == 'note' %} class="active" {% endif %}><a href="/note/">读书笔记</a></li>
                     <li {% if nav_name == 'about' %} class="active" {% endif %}><a href="/about/">关于</a></li>
                 </ul>
 
@@ -51,8 +52,10 @@
 
 
     <div class="jumbotron text-center" id="site-slogan">
+        {% block slogon %}
         <h1>www.<strong>liangfeizc</strong>.com</h1>
         <p><small>梁飞的个人小站 - <i>Zealous Carrier</i></small></p>
+        {% endblock %}
     </div>
     <div class="container">
 
