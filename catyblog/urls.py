@@ -9,6 +9,7 @@ urlpatterns = patterns('catyblog.views',
     url(r'^blog/', include('blog.urls')),
     url(r'^note/', include('note.urls')),
     url(r'^about/', 'about', name='about'),
+    url(r'^contact/', 'contact', name='contact'),
     url(r'^alibaba/', include(admin.site.urls)),
 )  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
