@@ -3,6 +3,14 @@ catyblog
 
 A Blog based on Django and Bootstrap
 
+
+TODO
+-------------
+* add search engine (scrapy or lucene)
+* customize admin
+* Note app to record life details
+* CMS
+
 How to deploy
 --------------
 
