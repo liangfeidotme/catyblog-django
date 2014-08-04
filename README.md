@@ -11,9 +11,10 @@ TODO
 * Note app to record life details
 * CMS
 
-How to deploy
+Database
 --------------
 
+    sudo apt-get install 
 
 Site Instance
 -------------

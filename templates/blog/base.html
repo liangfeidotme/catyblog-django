@@ -18,9 +18,9 @@
             <header class="panel-heading">文章分类</header>
             <section>
                 <ul class="nav nav-pills nav-stacked">
-                    {% for category in categories %}
+                    {% for item, number in categories %}
                         <li>
-                            <a href="{% url 'category' category.name %}">{{ category.description }}</a>
+                            <a href="{% url 'category' item.0 %}">{{ item.1 }}<span class="badge pull-right">{{ number }}</span></a>
                         </li>
                     {% endfor %}
 

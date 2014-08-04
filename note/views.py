@@ -5,10 +5,15 @@ from note.mongo import insert_issue, get_issue
 
 
 def index(request):
-    data_dict = get_issue()
-    data_dict['nav_name'] = 'note'
+    # data_dict = get_issue()
+    # data_dict['nav_name'] = 'note'
+    # return render(request, 'note/index.html',
+    #     {
+    #         'nav_name': 'note',
+    #         'one_note': data_dict
+    #     })
+
     return render(request, 'note/index.html',
         {
             'nav_name': 'note',
-            'one_note': data_dict
         })

@@ -25,12 +25,14 @@ def index(request, cat_name, page_num=1):
 
     posts = paginate(mark_down(posts), page_num)
 
+    # return HttpResponse(article_count_per_category())
+
     return render(request, 'blog/article_list.html',
                   {
                       'posts': posts,
                       'active_category': cat_name,
                       'archive': get_archive(),
-                      'categories': get_categories(),
+                      'categories': article_count_per_category(),
                       'nav_name': 'blog',
                   })
 
@@ -51,7 +53,7 @@ def article(request, article_id):
                       'post': post,
                       'active_category': post.category.name,
                       'archive': get_archive(),
-                      'categories': get_categories(),
+                      'categories': article_count_per_category(),
                       'nav_name': 'blog',
                   })
 
@@ -66,7 +68,7 @@ def archive(request, published_on):
                       'date': published_on,
                       'archive': get_archive(),
                       'posts': posts,
-                      'categories': get_categories(),
+                      'categories': article_count_per_category(),
                       'nav_name': 'blog',
                   })
 
@@ -143,3 +145,8 @@ def get_archive():
 def get_categories():
     categories = Category.objects.values('name', 'description')
     return categories
+
+
+def article_count_per_category():
+    categories = Category.objects.values('name', 'description')
+    return sorted(Counter((x['name'], x['description']) for x in categories).iteritems())
