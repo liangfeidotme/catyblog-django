@@ -1,57 +1,44 @@
-{% extends 'base_site.html' %}
-{% block base-container %}
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">关于我</div>
-                <div class="panel-body">
-                    <h2>个人经历</h2>
-                    <p>2010年毕业于南京某211大学，计算机科班出身，大学期间喜欢参加各种比赛。</p>
-                    <p>曾获得过<strong>江苏省首届大学生程序设计竞赛一等奖</strong>，<strong>高教杯大学生数学建模竞赛全国二等奖</strong>等奖项</p>
-                    <p>大三下学期，为了体验真实的工程环境，在某嵌入式公司实习半年，并打算以后从事嵌入式开发。</p>
-                    <p>后来怀着对日语极大的热情进入南京某日企，转去开发<strong>自动化测试框架</strong></p>
-                    <p>2011年12月通过<strong>JLPT-N1</strong>考试。</p>
-                    <p>随后从事<strong>Android APP</strong>开发，作为sub-leader参与开发了</p>
-                    <ul>
-                        <li><a href="https://play.google.com/store/apps/details?id=com.fujitsu.mobile_phone.fmail&hl=ja">NX!メール</a></li>
-                    </ul>
-                    <p>2011年10月 ~ 2012年09月，在<strong>日本游学</strong>一年，做过很多アルバイト（兼职），开阔了眼界，丰富了人生体验</p>
-                    <ul>
-                        <li>
-                            <strong><ruby>便利店收银员<rp>(</rp><rt>セブンイレブンのレジ</rt><rp>)</rp></ruby></strong>@
-                            <a href="https://plus.google.com/108088942892997786734/about?gl=us&hl=en">セブンイレブン</a>
-                        </li>
-                        <li>
-                            <strong><ruby>刷盘子/洗碗/上菜<rp>(</rp><rt>ランナー</rt><rp>)</rp></ruby></strong>@
-                            <a href="http://reserve.resort.co.jp/hotels../xiv/yama/restaurant/japanese/index.html">日本料理 花木鳥</a>
-                        </li>
-                        <li>
-                            <strong><ruby>日语文字翻译<rp>(</rp><rt>日本語翻訳</rt><rp>)</rp></ruby></strong>@
-                            <a href="http://www.shubiki.co.jp/">株式会社シュビキ</a>
-                        </li>
-                    </ul>
-                    <p>2013年10月回国，继续从事对日Android APP开发，作为leader，参与开发了</p>
-                    <ul>
-                        <li><a href="http://www.gizmodo.jp/2014/05/arrows_nx_remix.html">なぞってコピー</a></li>
-                    </ul>
-                    <p>现在作为leader，负责某国内项目。</p>
-                    <h2>兴趣爱好</h2>
-                    <p>写代码，我的<a href="https://www.github.com/lyndonchin/">Github</a></p>
-                    <ul>
-                        <li>Android</li>
-                        <li>HTML5</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>C++</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">我的微博</div>
-                <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=1670598115&verifier=e778bae3&dpc=1"></iframe>
-            </div>
-        </div>
-    </div>
+{% extends 'base.html' %}
+{% block blog-main %}
+<div>
+    <h2>个人经历</h2>
+    <p>2010年毕业于南京某211大学，计算机科班出身，大学期间喜欢参加各种比赛。</p>
+    <p>曾获得过<strong>江苏省首届大学生程序设计竞赛一等奖</strong>，<strong>高教杯大学生数学建模竞赛全国二等奖</strong>等奖项</p>
+    <p>大三下学期，为了体验真实的工程环境，在某嵌入式公司实习半年，并打算以后从事嵌入式开发。</p>
+    <p>后来怀着对日语极大的热情进入南京某日企，转去开发<strong>自动化测试框架</strong></p>
+    <p>2011年12月通过<strong>JLPT-N1</strong>考试。</p>
+    <p>随后从事<strong>Android APP</strong>开发，作为sub-leader参与开发了</p>
+    <ul>
+        <li><a href="https://play.google.com/store/apps/details?id=com.fujitsu.mobile_phone.fmail&hl=ja">NX!メール</a></li>
+    </ul>
+    <p>2011年10月 ~ 2012年09月，在<strong>日本游学</strong>一年，做过很多アルバイト（兼职），开阔了眼界，丰富了人生体验</p>
+    <ul>
+        <li>
+            <strong><ruby>便利店收银员<rp>(</rp><rt>セブンイレブンのレジ</rt><rp>)</rp></ruby></strong>@
+            <a href="https://plus.google.com/108088942892997786734/about?gl=us&hl=en">セブンイレブン</a>
+        </li>
+        <li>
+            <strong><ruby>刷盘子/洗碗/上菜<rp>(</rp><rt>ランナー</rt><rp>)</rp></ruby></strong>@
+            <a href="http://reserve.resort.co.jp/hotels../xiv/yama/restaurant/japanese/index.html">日本料理 花木鳥</a>
+        </li>
+        <li>
+            <strong><ruby>日语文字翻译<rp>(</rp><rt>日本語翻訳</rt><rp>)</rp></ruby></strong>@
+            <a href="http://www.shubiki.co.jp/">株式会社シュビキ</a>
+        </li>
+    </ul>
+    <p>2013年10月回国，继续从事对日Android APP开发，作为leader，参与开发了</p>
+    <ul>
+        <li><a href="http://www.gizmodo.jp/2014/05/arrows_nx_remix.html">なぞってコピー</a></li>
+    </ul>
+    <p>现在作为leader，负责某国内项目。</p>
+    <h2>兴趣爱好</h2>
+    <p>写代码，我的<a href="https://www.github.com/lyndonchin/">Github</a></p>
+    <ul>
+        <li>Android</li>
+        <li>HTML5</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>C++</li>
+    </ul>
+</div>
 {% endblock %}

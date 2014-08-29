@@ -1,15 +1,9 @@
-{% extends 'blog/base.html' %}
-{% block main-content %}
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            {{ date }} 存档
-        </div>
-        <div class="panel-body">
-            <ul class="nav">
-                {% for post in posts %}
-                    <li><a href="{% url 'article' post.id %}">{{ post.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+{% extends 'base.html' %}
+{% block blog-main %}
+{{ date }}
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url 'article' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
 {% endblock %}

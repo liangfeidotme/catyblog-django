@@ -1,11 +1,8 @@
 from markdown import markdown
-from pymongo import MongoClient
-from bson import json_util
 from collections import Counter
 import datetime
 
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from blog.models import Post, Category
 
@@ -27,7 +24,7 @@ def index(request, cat_name, page_num=1):
 
     # return HttpResponse(article_count_per_category())
 
-    return render(request, 'blog/article_list.html',
+    return render(request, 'blog/index.html',
                   {
                       'posts': posts,
                       'active_category': cat_name,
@@ -43,12 +40,12 @@ def article(request, article_id):
     """
     posts = Post.objects.filter(id=int(article_id))
     if posts.count() == 0:
-        return render(request, 'blog/article_detail.html')
+        return render(request, 'blog/article.html')
 
     post = posts[0]
     post.body = markdown(post.body)
 
-    return render(request, 'blog/article_detail.html',
+    return render(request, 'blog/article.html',
                   {
                       'post': post,
                       'active_category': post.category.name,
@@ -80,7 +77,7 @@ def mark_down(posts):
 
 
 def paginate(posts, page_num=1):
-    paginator = Paginator(posts, 3)
+    paginator = Paginator(posts, 2)
     try:
         page = int(page_num)
     except ValueError:
@@ -92,48 +89,6 @@ def paginate(posts, page_num=1):
         posts = paginator.page(paginator.num_pages)
 
     return posts
-
-
-# def json_gate_way(request, json_type):
-#     if request.method == 'GET':
-#         if json_type.lower() == 'category':
-#             return HttpResponse(json_util.dumps(Category.objects.values('name', 'description')))
-#         elif json_type.lower() == 'recent':
-#             return HttpResponse(json_util.dumps(Post.objects.values('id', 'title').order_by('-date')[:10]))
-#         elif json_type.lower() == 'comment':
-#             comment_list = get_comments()
-#             return HttpResponse(json_util.dumps(comment_list))
-#
-#
-# def comment(request):
-#     if request.method == 'POST':
-#         mail = request.POST.get('your_mail', '')
-#         your_comment = request.POST.get('your_comment', '')
-#         if your_comment == '':
-#             return HttpResponse("You failed!")
-#         insert_comment(mail, your_comment)
-#         return HttpResponse("Thank you!")
-#
-#
-# def get_comments():
-#     client = MongoClient('localhost', 27017)
-#     db = client.catyblog
-#     collection = db.comments
-#     return collection.find()
-#
-#
-# def insert_comment(mail, cmt):
-#     if len(mail) == 0:
-#         mail = "anonymous"
-#
-#     item = {'mail': mail, 'comment': cmt}
-#     MongoClient('localhost', 27017).catyblog.comments.insert(item)
-
-
-
-def search(request, keyword):
-    search_result = Post.objects.filter(body__search=keyword)
-    return render(request, 'blog/search_result.html', {'result': search_result});
 
 
 def get_archive():
@@ -149,5 +104,3 @@ def get_categories():
 
 def article_count_per_category():
     return Counter(post.category for post in Post.objects.all()).iteritems()
-    # categories = Category.objects.values('name', 'description')
-    # return Counter((x['name'], x['description']) for x in categories).iteritems()
