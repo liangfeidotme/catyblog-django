@@ -36,8 +36,9 @@
 var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F68ce38b8f12f5d704919ba50aa0a3b54' type='text/javascript'%3E%3C/script%3E"));
 </script>
-  <body>
-    <div class="blog-masthead">
+  <body id="top">
+  <p id="back-to-top"><a href="#top"><span></span></a></p>
+    <header class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item {% if nav_name == 'blog' %}active {% endif %}" href="/">博客</a>
@@ -45,8 +46,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
           <a class="blog-nav-item {% if nav_name == 'about' %}active {% endif %}" href="/about">关于</a>
         </nav>
       </div>
-    </div>
-
+    </header>
     <div class="container">
 
       <div class="blog-header">
@@ -115,4 +115,25 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
     <script src="{% static 'jquery/jquery-1.11.1.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/docs.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //首先将#back-to-top隐藏
+            $("#back-to-top").hide();
+            //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+            $(function () {
+                $(window).scroll(function() {
+                    if ($(window).scrollTop()>100) {
+                        $("#back-to-top").fadeIn(1500);
+                } else {
+                    $("#back-to-top").fadeOut(1500);
+                }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function() {
+                $('body,html').animate({scrollTop:0}, 200);
+                return false;
+            });
+        });
+    });
+    </script>
 </body></html>
