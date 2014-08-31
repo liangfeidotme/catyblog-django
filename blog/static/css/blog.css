@@ -5,6 +5,7 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
+  margin-top: -22px; /* hide the icon of baidu tongji */
 }
 
 h1, .h1,
