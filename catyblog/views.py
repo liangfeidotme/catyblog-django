@@ -1,22 +1,14 @@
 __author__ = 'lyndon'
 
 from django.shortcuts import render
-from blog.views import get_archive, article_count_per_category
+from blog.views import fill_page_with
 
 
 def about(request):
     return render(request, 'about.html',
-              {
-                  'nav_name': 'about',
-                  'archive': get_archive(),
-                  'categories': article_count_per_category(),
-              })
+                  fill_page_with(nav_name='about'))
 
 
 def contact(request):
     return render(request, 'contact.html',
-              {
-                  'nav_name': 'contact',
-                  'archive': get_archive(),
-                  'categories': article_count_per_category(),
-              })
+                  fill_page_with(nav_name='contact'))
