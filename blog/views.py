@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from markdown import markdown
 from collections import Counter
 import datetime
@@ -30,6 +31,7 @@ def index(request, cat_name, page_num=1):
                       'active_category': cat_name,
                       'archive': get_archive(),
                       'categories': article_count_per_category(),
+                      'tags': get_tags(),
                       'nav_name': 'blog',
                   })
 
@@ -67,7 +69,16 @@ def archive(request, published_on):
                       'posts': posts,
                       'categories': article_count_per_category(),
                       'nav_name': 'blog',
-                  })
+                  }.update())
+
+
+def tag(request, tag_name):
+    return render(request, 'blog/tag_filter.html',
+                  {'articles': search_by_tag(tag_name)})
+
+
+def get_page_elements():
+    return {'archive': get_archive(), 'categories': article_count_per_category(), 'tags': get_tags()}
 
 
 def mark_down(posts):
@@ -104,3 +115,19 @@ def get_categories():
 
 def article_count_per_category():
     return Counter(post.category for post in Post.objects.all()).iteritems()
+
+
+def get_tags():
+    tagset = set()
+    for post in Post.objects.all():
+        for tag in post.tags.all():
+            tagset.add(tag.name)
+    return tagset
+
+
+def search_by_tag(tag_name):
+    articles = set()
+    for post in Post.objects.all():
+        if tag_name in (tag.name for tag in post.tags.all()):
+            articles.add((post.id, post.title))
+    return articles

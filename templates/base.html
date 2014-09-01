@@ -80,6 +80,12 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
               </ol>
           </div>
           <div class="sidebar-module">
+              <h4>标签</h4>
+              {% for tag in tags %}
+                <a href="{% url 'tag' tag %}">{{ tag }}</a>
+              {% endfor %}
+          </div>
+          <div class="sidebar-module">
             <h4>归档</h4>
             <ol class="list-unstyled">
               {% for date, count in archive %}

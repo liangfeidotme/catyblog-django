@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block blog-main %}
+    <ul>
+        {% for id, title in articles %}
+            <li><a href="{% url 'article' id %}">{{ title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
