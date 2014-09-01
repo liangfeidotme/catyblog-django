@@ -11,5 +11,5 @@ urlpatterns = patterns('blog.views',
 
     url(r'^archive/(?P<published_on>\d{4}-\d{2})/$', 'archive', name='archive'),
 
-    url(r'^tag/(?P<tag_name>\w+)/$', 'tag', name='tag'),
+    url(r'^tag/(?P<tag_name>.+)/$', 'tag', name='tag'),
 )
