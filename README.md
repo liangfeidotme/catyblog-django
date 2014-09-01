@@ -1,23 +1,28 @@
 catyblog
 ========
 
-A Blog based on Django and Bootstrap
-
-
-TODO
+系统介绍
 -------------
-* add search engine (scrapy or lucene)
-* customize admin
-* Note app to record life details
-* CMS
+catyblog是一个基于Django的个人博客系统。前端框架使用bootstrap。
+后台管理系统暂时使用Django的提供的admin应用。
 
-Database
---------------
+功能主要包括：
 
-    sudo apt-get install 
+* 博文采用markdown格式
+* 文章分类
+* 文章归档
+* 文章tag
 
-Site Instance
+准备添加的功能有：
+
+* 博客后台Dashboard
+* 搜索功能
+* tag检索
+* 抽取摘要
+* 抽取关键词
+
+使用catyblog的网站
 -------------
-Please refer [Zealous Carrier](http://www.liangfeizc.com) to see the instance.
 
+[Zealous Carrier](http://www.liangfeizc.com)
 
