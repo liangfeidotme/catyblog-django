@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from markdown import markdown
 from collections import Counter
 import datetime
+import json
 
 from django.shortcuts import render
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
@@ -26,14 +27,7 @@ def index(request, cat_name, page_num=1):
     # return HttpResponse(article_count_per_category())
 
     return render(request, 'blog/index.html',
-                  {
-                      'posts': posts,
-                      'active_category': cat_name,
-                      'archive': get_archive(),
-                      'categories': article_count_per_category(),
-                      'tags': get_tags(),
-                      'nav_name': 'blog',
-                  })
+                  fill_page_with(posts=posts, nav_name='blog', active_category=cat_name))
 
 
 def article(request, article_id):
@@ -48,13 +42,7 @@ def article(request, article_id):
     post.body = markdown(post.body)
 
     return render(request, 'blog/article.html',
-                  {
-                      'post': post,
-                      'active_category': post.category.name,
-                      'archive': get_archive(),
-                      'categories': article_count_per_category(),
-                      'nav_name': 'blog',
-                  })
+                  fill_page_with(post=post, active_category=post.category.name, nav_name='blog'))
 
 
 def archive(request, published_on):
@@ -63,22 +51,18 @@ def archive(request, published_on):
         date__year=published_on[:4],
         date__month=published_on[5:7]).values('id', 'title')
     return render(request, 'blog/archive.html',
-                  {
-                      'date': published_on,
-                      'archive': get_archive(),
-                      'posts': posts,
-                      'categories': article_count_per_category(),
-                      'nav_name': 'blog',
-                  }.update())
+                  fill_page_with(date=published_on, posts=posts, nav_name='blog'))
 
 
 def tag(request, tag_name):
     return render(request, 'blog/tag_filter.html',
-                  {'articles': search_by_tag(tag_name)})
+                  fill_page_with(articles=search_by_tag(tag_name), tag=tag_name, nav_name='blog'))
 
 
-def get_page_elements():
-    return {'archive': get_archive(), 'categories': article_count_per_category(), 'tags': get_tags()}
+def fill_page_with(**kwargs):
+    base_dict = {'archive': get_archive(), 'categories': article_count_per_category(), 'tags': get_tags()}
+    base_dict.update(kwargs)
+    return base_dict
 
 
 def mark_down(posts):

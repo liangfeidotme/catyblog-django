@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block blog-main %}
-    <ul>
+    <p><strong>{{ tag }}</strong>文章列表</p>
+    <ul class="list-unstyled">
         {% for id, title in articles %}
             <li><a href="{% url 'article' id %}">{{ title }}</a></li>
         {% endfor %}
