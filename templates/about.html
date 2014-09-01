@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% block blog-main %}
 <div>
+    <h2>一句话概括</h2>
+    <p>写得了代码、说得了外语</p>
+    <hr>
+    <h2>技术</h2>
+    <p><a href="https://www.github.com/lyndonchin/">Github</a></p>
+    <ul>
+        <li>Android</li>
+        <li>Python</li>
+        <li>Java/C++</li>
+        <li>HTML5</li>
+    </ul>
+    <hr>
     <h2>个人经历</h2>
     <p>2010年毕业于南京某211大学，计算机科班出身，大学期间喜欢参加各种比赛。</p>
     <p>曾获得过<strong>江苏省首届大学生程序设计竞赛一等奖</strong>，<strong>高教杯大学生数学建模竞赛全国二等奖</strong>等奖项</p>
@@ -31,14 +43,27 @@
         <li><a href="http://www.gizmodo.jp/2014/05/arrows_nx_remix.html">なぞってコピー</a></li>
     </ul>
     <p>现在作为leader，负责某国内项目。</p>
-    <h2>兴趣爱好</h2>
-    <p>写代码，我的<a href="https://www.github.com/lyndonchin/">Github</a></p>
-    <ul>
-        <li>Android</li>
-        <li>HTML5</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>C++</li>
-    </ul>
 </div>
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread"
+         data-thread-key="http://www.liangfeizc.com/about"
+         data-title="关于 Zealous Carrier"
+         data-url="http://www.liangfeizc.com/about">
+    </div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"liangfei"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</section>
 {% endblock %}
