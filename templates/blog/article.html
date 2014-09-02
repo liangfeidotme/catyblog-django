@@ -7,7 +7,7 @@
         <section class="blog-post-meta">
             {{ post.date }} |
             {% for tag in post.tags.all %}
-                {{ tag }} |
+                <a href="{% url 'tag' tag %}">{{ tag }}</a> |
             {% endfor %}
         </section>
         <section>
