@@ -82,6 +82,16 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
               </ol>
           </div>
           <div class="sidebar-module">
+              <h4>最新</h4>
+              <ol class="list-unstyled">
+                  {% for id, title in recent_published %}
+                      <li>
+                        <a href="{% url 'article' id %}">{{ title }}</a>
+                      </li>
+                  {% endfor %}
+              </ol>
+          </div>
+          <div class="sidebar-module">
               <h4>标签</h4>
               {% for tag in tags %}
                 <a href="{% url 'tag' tag %}">{{ tag }}</a> | 

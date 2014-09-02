@@ -60,7 +60,12 @@ def tag(request, tag_name):
 
 
 def fill_page_with(**kwargs):
-    base_dict = {'archive': get_archive(), 'categories': article_count_per_category(), 'tags': get_tags()}
+    base_dict = {
+        'archive': get_archive(),
+        'categories': article_count_per_category(),
+        'tags': get_tags(),
+        'recent_published': get_recently_published(5),
+        }
     base_dict.update(kwargs)
     return base_dict
 
@@ -115,3 +120,11 @@ def search_by_tag(tag_name):
         if tag_name in (tag.name for tag in post.tags.all()):
             articles.add((post.id, post.title))
     return articles
+
+
+def get_recently_published(num):
+    assert num > 0
+    posts = Post.objects.all()
+    if num < posts.count():
+        posts = posts[num]
+    return [(post.id, post.title) for post in posts]
