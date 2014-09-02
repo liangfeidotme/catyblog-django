@@ -33,12 +33,13 @@ Trouble Shooting
 ----------------
 
 
-- 代码更新后，启动uWSGI时出现 *unbind() Permission Denied* 的错误
+1.  代码更新后，启动uWSGI时出现 *unbind() Permission Denied* 的错误
 
-  要确保catyblog目录的所有者为www-data:www-data而不是root:root
-      sudo chown -R www-data:www-data catyblog
+    要确保catyblog目录的所有者为**www-data:www-data**而不是**root:root**
+      
+        sudo chown -R www-data:www-data catyblog
 
-- 代码更新后，出现 *Server Error (500)*
+2.  代码更新后，出现 *Server Error (500)*
 
   这时候要把Debug选项打开，查看是不是代码有bug
 
