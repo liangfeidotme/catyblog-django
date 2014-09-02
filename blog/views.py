@@ -60,11 +60,12 @@ def tag(request, tag_name):
 
 
 def fill_page_with(**kwargs):
-    base_dict = {
-        'archive': get_archive(),
-        'categories': article_count_per_category(),
-        'tags': get_tags(),
-        'recent_published': get_recently_published(5),
+    base_dict = \
+        {
+            'archive': get_archive(),
+            'categories': article_count_per_category(),
+            'tags': get_tags(),
+            'recent_published': get_recently_published(5),
         }
     base_dict.update(kwargs)
     return base_dict
@@ -107,11 +108,11 @@ def article_count_per_category():
 
 
 def get_tags():
-    tagset = set()
+    tags = set()
     for post in Post.objects.all():
         for tag in post.tags.all():
-            tagset.add(tag.name)
-    return tagset
+            tags.add(tag.name)
+    return tags
 
 
 def search_by_tag(tag_name):
