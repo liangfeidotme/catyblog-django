@@ -128,4 +128,6 @@ def get_recently_published(num):
     posts = Post.objects.order_by('-date')
     if num < posts.count():
         posts = posts[num]
+    else:
+        posts = posts.iterator()
     return [(post.id, post.title) for post in posts]
