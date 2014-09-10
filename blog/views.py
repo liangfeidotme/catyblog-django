@@ -126,8 +126,6 @@ def search_by_tag(tag_name):
 def get_recently_published(num):
     assert num > 0
     posts = Post.objects.order_by('-date')
-    if num < posts.count():
-        posts = posts[num]
-    else:
-        posts = posts.iterator()
+    if num < len(posts):
+        posts = posts[:num]
     return [(post.id, post.title) for post in posts]
