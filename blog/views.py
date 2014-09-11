@@ -18,9 +18,9 @@ def index(request, cat_name, page_num=1):
     Home page
     """
     if cat_name.lower() == 'home':
-        posts = Post.objects.all().order_by('-date')
+        posts = Post.objects.all().order_by('id').reverse()
     else:
-        posts = Post.objects.all().filter(category__name=cat_name).order_by('-date')
+        posts = Post.objects.all().filter(category__name=cat_name).order_by('id').reverse()
 
     posts = paginate(mark_down(posts), page_num)
 
