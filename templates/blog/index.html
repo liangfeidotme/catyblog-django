@@ -7,7 +7,9 @@
             </header>
             <p class="blog-post-meta">{{ post.date }}</p>
             <section>
-                {{ post.body|safe }}
+                {% autoescape off %}
+                {{ post.body|truncatewords:"50" }}
+                {% endautoescape %}
             </section>
         </article>
         <hr>
