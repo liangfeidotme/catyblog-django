@@ -79,7 +79,7 @@ def mark_down(posts):
 
 
 def paginate(posts, page_num=1):
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 2)
     try:
         page = int(page_num)
     except ValueError:
