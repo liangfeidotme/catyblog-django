@@ -22,7 +22,9 @@ def index(request, cat_name, page_num=1):
     else:
         posts = Post.objects.all().filter(category__name=cat_name).order_by('id').reverse()
 
-    posts = paginate(mark_down(posts), page_num)
+    mark_down(posts)
+
+    posts = paginate(posts, page_num)
 
     # return HttpResponse(article_count_per_category())
 
@@ -74,7 +76,6 @@ def fill_page_with(**kwargs):
 def mark_down(posts):
     for post in posts:
         post.body = markdown(post.body)
-    return posts
 
 
 def paginate(posts, page_num=1):
@@ -125,7 +126,7 @@ def search_by_tag(tag_name):
 
 def get_recently_published(num):
     assert num > 0
-    posts = Post.objects.order_by('-date')
+    posts = Post.objects.order_by('id').reverse()
     if num < len(posts):
         posts = posts[:num]
     return [(post.id, post.title) for post in posts]
