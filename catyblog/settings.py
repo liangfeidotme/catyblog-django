@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'CatyKANJI',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,3 +97,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates/'),
 )
+
+
+# CatyKANJI
+
+KANJI_RES_ROOT = os.path.join(BASE_DIR, 'res/kanji')

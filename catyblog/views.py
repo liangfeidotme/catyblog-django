@@ -15,12 +15,3 @@ def about(request):
 def contact(request):
     return render(request, 'contact.html',
                   fill_page_with(nav_name='contact'))
-
-def catykanji_contents(request):
-    if request.method == 'GET':
-        contents = {}
-        contents['character'] = '鬱'
-        contents['pronunciation'] = 'うつ'
-        contents['phrases'] = '鬱病'
-
-        return HttpResponse(json.dumps(contents), content_type='application/json')

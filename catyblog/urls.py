@@ -11,7 +11,7 @@ urlpatterns = patterns('catyblog.views',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^about/$', 'about'),
     url(r'^contact/$', 'contact'),
-    url(r'^catykanji/json/contents/$', 'catykanji_contents'),
+    url(r'^catykanji/', include('CatyKANJI.urls')),
 
 )  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
