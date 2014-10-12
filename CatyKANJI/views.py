@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import os
-import json
 from django.http import HttpResponse
 
 from mongo import KanjiMongo
@@ -17,3 +15,6 @@ def index(request):
 def download_kanji(request):
     kanji = _mongo.get_kanji()
     return HttpResponse(kanji, content_type="application/json")
+
+def test(request):
+    return HttpResponse(_mongo.test(), content_type="application/json; charset=utf-8")

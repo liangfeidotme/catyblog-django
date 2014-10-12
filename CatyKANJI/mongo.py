@@ -3,7 +3,7 @@ __author__ = 'lyndon'
 import os
 import shutil
 import json
-
+from bson import json_util
 from pymongo import MongoClient
 from catyblog.settings import KANJI_RES_ROOT
 
@@ -20,7 +20,7 @@ class KanjiMongo:
     def get_kanji(self):
         # check pending dir to see if there's any file
         self.check_update()
-        return self._db.kanji.find()
+        return json_util.dumps(self._db.kanji.find())
 
     def insert_kanji(self, kanji):
         self._db.kanji.insert(kanji)
@@ -36,3 +36,8 @@ class KanjiMongo:
 
                 # move sync-over file into 'finished' directory
                 shutil.move(os.path.join(path, file), os.path.join(self.FINISHED_DIR, file))
+
+    def test(self):
+        with open(os.path.join(self.FINISHED_DIR, 'chapter1.json')) as my_file:
+            return my_file.read()
+
