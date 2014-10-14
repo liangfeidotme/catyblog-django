@@ -17,10 +17,11 @@ class KanjiMongo:
         self._client = MongoClient()
         self._db = self._client[self.DATA_BASE]
 
-    def get_kanji(self):
+    def get_kanji(self, version):
         # check pending dir to see if there's any file
         self.check_update()
-        return json_util.dumps(self._db.kanji.find())
+        result = self._db.kanji.find({"version": {"$gte": version}})
+        return json_util.dumps(result)
 
     def insert_kanji(self, kanji):
         self._db.kanji.insert(kanji)
