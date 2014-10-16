@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>搜啊搜</title>
+    <style>
+        @media print {
+            div.footer {
+                page-break-after:always;
+            }
+        }
+        table {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+            margin-top: 50px;
+            margin-left: 25mm;
+            width: 80%;
+        }
+
+        table th {
+            border: 1px solid #000000;
+        }
+
+        table td {
+            border: 1px solid #000000;
+            padding: 5px 10px;
+        }
+
+        table td:nth-child(4) {
+            text-align: center;
+            width: 30px;
+        }
+
+        table .title {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        table th {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body style="width: 210mm;">
+{% for person in persons %}
+<table>
+    <tr><td colspan="5" class="title">中国癌症筛查试验可行性研究体检单</td></tr>
+    <tr>
+        <td>姓名： {{ person.name }}</td>
+        <td>性别： {% if person.sex == '1' %} 男 {% else %} 女 {% endif %}</td>
+        <td>年龄： {{ person.age }}</td>
+        <td style="text-align: left" colspan="2">电话：{{ person.phone }}</td>
+    </tr>
+    <tr>
+        <td>筛查ID：{{ person.order }}</td>
+        <td colspan="4">组别：{{ person.team }}</td>
+    </tr>
+    <tr>
+        <th>体检项目</th><th>科室</th><th colspan="2">注意事项</th><th>备注</th>
+    </tr>
+    <tr>
+        <td>1、抽血化验</td>
+        <td>门诊楼9层会议室</td>
+        <td colspan="2">空腹</td>
+        <td>
+            {% if person.team_number == 1 or person.team_number == 2 or person.team_number == 3 %}
+                &radic;
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>2、低剂量螺旋CT</td><td>门诊楼1层放射科</td>
+        <td colspan="2"></td>
+        <td>
+            {% if person.team_number == 1 or person.team_number == 2 %}
+                &radic;
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>3、肠镜</td><td>门诊楼2层内窥镜室</td>
+        <td colspan="2">会议室领灌肠液</td>
+        <td>
+            {% if person.team_number == 1 %}
+                &radic;
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>4、OC-FIT大便潜血</td><td>社区卫生服务中心</td>
+        <td colspan="2">会议室领采便管刷</td>
+        <td>
+            {% if person.team_number == 2 %}
+                &radic;
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td>5、InSureFIT大便潜血</td><td>社区卫生服务中心</td>
+        <td colspan="2">会议室领采便信封</td>
+        <td>
+            {% if person.team_number == 3 %}
+                &radic;
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">咨询电话：<em>0573-89260283</em> 海宁市肿瘤研究所</td>
+    </tr>
+</table>
+    {% if forloop.counter|divisibleby:'2' %}
+        <div class="footer"></div>
+    {% else %}
+        <div style="height: 250px;"></div>
+    {% endif %}
+{% endfor %}
+</body>
+</html>
